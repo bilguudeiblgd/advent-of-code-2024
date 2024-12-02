@@ -19,12 +19,10 @@ fun main() {
     val list1 = matrix.map { it[0].toInt() }
     val list2 = matrix.map { it[1].toInt() }
 
-    val sortedList1 = list1.sorted()
-    val sortedList2 = list2.sorted()
-
     var sum = 0;
-    for (i in 0 until sortedList1.size) {
-        sum += abs(sortedList2[i] - sortedList1[i])
+
+    list1.forEachIndexed { i, el ->
+        sum += list1[i] * list2.count {el == it}
     }
-    println(sum)
+    print(sum)
 }
