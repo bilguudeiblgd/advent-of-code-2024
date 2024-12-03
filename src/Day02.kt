@@ -30,7 +30,7 @@ fun main() {
         for (i in input.indices) {
             val list = input[i].split(" ").toMutableList().map { it.toInt() }.toMutableList()
             var indexToDrop = 0
-            var ascending = 0
+            var ascending = if (list[1] - list[0] > 0) 1 else -1
             for (j in 1 until list.size) {
                 val diff = abs(list[j] - list[j-1])
                 if(diff !in 1..3) {
@@ -46,13 +46,6 @@ fun main() {
                     if(list[j] - list[j-1] > 0) {
                         indexToDrop = j;
                         break;
-                    }
-                }
-                else {
-                    if(list[j] - list[j-1] > 0) {
-                        ascending = 1
-                    } else {
-                        ascending = -1
                     }
                 }
             }
